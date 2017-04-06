@@ -16,8 +16,8 @@
 # Ignore Byebug command history file.
 .byebug_history
 
-#Ignore node modules
-/node_modules
+#Ignore DS_Store
+.DS_Store
 
 # Ignore secrets
 /config/secrets.yml
