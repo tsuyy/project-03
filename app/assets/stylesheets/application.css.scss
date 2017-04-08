@@ -15,5 +15,16 @@
  */
 
 @import "semantic-ui";
-@import "font-awesome-sprockets";
-@import "font-awesome";
+@import url('https://fonts.googleapis.com/css?family=Buda:300|Petit+Formal+Script|Roboto+Mono|Special+Elite');
+
+body {
+  font-family: 'Roboto Mono', monospace!important;
+}
+
+h1 {
+  font-family: 'Petit Formal Script', cursive!important;
+  a {
+    font-size: 3rem!important;
+    text-align: center;
+  }
+}

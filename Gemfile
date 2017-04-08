@@ -32,10 +32,10 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 # Font Awesome
-gem 'font-awesome-sass'
+# gem 'font-awesome-sass'
 # Semantic UI sass
 gem 'semantic-ui-sass'
-# HTTParty 
+# HTTParty
 gem 'httparty'
 
 # Use Capistrano for deployment
