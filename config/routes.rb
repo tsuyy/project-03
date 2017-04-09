@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root                 to: 'users#home'
 
   # User routes
-  resources :users
+  resources :users,    except: [:index]
 
   # Session routes
   get     '/login',    to: 'sessions#new'
