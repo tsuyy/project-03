@@ -1,21 +1,24 @@
-<div class='ui secondary menu'>
-  <%= link_to edit_user_path(current_user) do %>
-    <div class='link item'><i class="configure large icon"></i></div>
-  <% end %>
-  <%= link_to current_user do %>
-    <div class='link item'><i class="user large icon"></i></i></div>
-  <% end %>
-  <%= link_to users_path do %>
-    <div class='link item'><i class="bookmark large icon"></i></i></div>
-  <% end %>
-  <%= link_to users_path do %>
-    <div class='link item'><i class="grid layout large icon"></i></i></div>
-  <% end %>
-  <%= link_to logout_path, method: "delete" do %>
-    <div class='link item'><i class="sign out large icon"></i></div>
-  <% end %>
-</div>
-<h1>
+<br><% if logged_in? %>
+  <div class='ui secondary menu'>
+    <%= link_to current_user do %>
+      <div class='link item'><i class="grid layout large icon"></i></div>
+    <% end %>
+    <%= link_to current_user do %>
+      <div class='link item'><i class="user large icon"></i></div>
+    <% end %>
+    <%= link_to edit_user_path(current_user) do %>
+      <div class='link item'><i class="plus large icon"></i></div>
+    <% end %>
+    <%= link_to current_user do %>
+      <div class='link item'><i class="bookmark large icon"></i></div>
+    <% end %>
+    <%= link_to logout_path, method: "delete" do %>
+      <div class='link item'><i class="sign out large icon"></i></div>
+    <% end %>
+  </div>
+<% end %>
+
+<h1 class='ui center aligned header'>
   <%= link_to root_path do %>
     Stellar
   <% end %>
