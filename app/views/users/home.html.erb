@@ -1,0 +1,77 @@
+<div class="video-background">
+    <div class="video-foreground">
+      <!-- <iframe src="https://www.youtube.com/embed/PrrHve14fAA?start=11&end=36&controls=0&showinfo=0&rel=0&autoplay=1&loop=1&playlist=PrrHve14fAA" frameborder="0" allowfullscreen></iframe> -->
+    </div>
+  </div>
+
+<div class='ui container'>
+  <div class="ui secondary  menu">
+    <% if logged_in? %>
+      <%= link_to edit_user_path(current_user) do %>
+        <div class='link item'><i class="configure large icon"></i></div>
+      <% end %>
+      <%= link_to current_user do %>
+        <div class='link item'><i class="user large icon"></i></i></div>
+      <% end %>
+      <%= link_to users_path do %>
+        <div class='link item'><i class="bookmark large icon"></i></i></div>
+      <% end %>
+      <%= link_to users_path do %>
+        <div class='link item'><i class="grid layout large icon"></i></i></div>
+      <% end %>
+      <%= link_to logout_path, method: "delete" do %>
+        <div class='link item'><i class="sign out large icon"></i></div>
+      <% end %>
+
+    <% else %>
+      <%= link_to new_user_path(controller: 'users') do %>
+        <button class='ui button'> Sign Up </button>
+      <% end %>
+
+      <%= link_to login_path(controller: 'sessions') do %>
+        <button class='ui button'> Sign In </button>
+      <% end %>
+    <% end %>
+    <div class="right menu">
+      <div class="item">
+        <div class="ui icon input">
+          <input type="text" placeholder="Search...">
+          <i class="search link icon"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<script type="text/javascript">
+
+     function showLocation(position) {
+        var latitude = position.coords.latitude;
+        var longitude = position.coords.longitude;
+        alert(latitude + " ," + longitude);
+     }
+
+     function errorHandler(err) {
+        if(err.code == 1) {
+           alert("Error: Access is denied!");
+        }
+
+        else if( err.code == 2) {
+           alert("Error: Position is unavailable!");
+        }
+     }
+
+     function getLocation(){
+
+        if(navigator.geolocation){
+           navigator.geolocation.getCurrentPosition(showLocation, errorHandler);
+        }
+
+        else{
+           alert("Sorry, browser does not support geolocation!");
+        }
+     }
+
+  </script>
+
+  <button class="ui button" onclick="getLocation();">Get Location</button>
+</div>

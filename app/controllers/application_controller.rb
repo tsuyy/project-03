@@ -3,8 +3,9 @@ class ApplicationController < ActionController::Base
 
   include SessionsHelper
 
-    # def page_not_found
-    #   render :file => "#{Rails.root}/public/404.html",  :status => 404
-    # end
+  # def page_not_found
+  #   render :file => "#{Rails.root}/public/404.html",  :status => 404
+  # end
+
 
 end

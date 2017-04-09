@@ -1,6 +1,9 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
+  def home
+  end
+
   # GET /users
   def index
     @users = User.all
@@ -43,7 +46,7 @@ class UsersController < ApplicationController
   # DELETE /users/1
   def destroy
     @user.destroy
-    redirect_to root_path 
+    redirect_to root_path
   end
 
   private
