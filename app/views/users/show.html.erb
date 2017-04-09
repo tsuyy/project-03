@@ -1,24 +1,55 @@
-<p>
-  <strong>Name:</strong>
-  <%= @user.name %>
-</p>
+<%= render 'layouts/header' %>
 
-<p>
-  <strong>Bio:</strong>
-  <%= @user.bio %>
-</p>
-
-<p>
-  <strong>Email:</strong>
-  <%= @user.email %>
-</p>
-
-
-<%= link_to edit_user_path(@user) do %>
-  <i class="edit large icon"></i>
-<% end %>
-
-<%= link_to @user, method: :delete do %>
-  <i class="trash large icon"></i>
-<% end %>
-<%= link_to 'Back', users_path, class: 'ui button' %>
+<div class="ui stackable grid container">
+  <div class="six wide column">
+    <div class="ui card">
+      <div class="image">
+        <%if @user.avatar.blank? %>
+          <%= image_tag('https://semantic-ui.com/images/avatar/large/elliot.jpg') %>
+        <% else %>
+          <%= image_tag(@user.avatar.url(:medium)) %>
+        <% end %>
+      </div>
+      <div class="content">
+        <span class='header'><%= @user.name %></span>
+        <div class="meta">
+          joined on <%= @user.created_at.strftime("%m/%d/%Y") %>
+        </div>
+        <div class="bio">
+          <%= @user.bio %>
+        </div>
+      </div>
+      <% if current_user?(@user) %>
+        <div class="extra content">
+          <%= link_to edit_user_path(@user) do %>
+            <div class='right floated'><i class="write large icon"></i></div>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+  <div class="ten wide column">
+    <div class='ui stackable two column grid'>
+      <div class='column'>
+        <div class="ui segment">
+          <img class="ui medium rounded image" src="https://semantic-ui.com/images/wireframe/square-image.png">
+        </div>
+      </div>
+      <div class='column'>
+        <div class="ui segment">
+          <img class="ui medium rounded image" src="https://semantic-ui.com/images/wireframe/square-image.png">
+        </div>
+      </div>
+      <div class='column'>
+        <div class="ui segment">
+          <img class="ui medium rounded image" src="https://semantic-ui.com/images/wireframe/square-image.png">
+        </div>
+      </div>
+      <div class='column'>
+        <div class="ui segment">
+          <img class="ui medium rounded image" src="https://semantic-ui.com/images/wireframe/square-image.png">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

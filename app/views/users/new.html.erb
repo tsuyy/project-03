@@ -1,5 +1,38 @@
-<h1>New User</h1>
+<br><br><%= render 'layouts/header' %>
 
-<%= render 'form', user: @user %>
+<h3>Create Account</h3>
 
-<%= link_to 'Back', users_path %>
+<div class='ui form'>
+  <div class='fields'>
+    <%= form_for(new_user_path) do |f| %>
+
+      <div class="field">
+        <%= f.label :name %>
+        <div class='ui left icon input'>
+          <%= f.text_field :name %>
+          <i class="add user icon"></i>
+        </div>
+      </div>
+
+      <div class="field">
+        <%= f.label :email %>
+        <div class='ui left icon input'>
+          <%= f.text_field :email %>
+          <i class="mail icon"></i>
+        </div>
+      </div>
+
+      <div class="field">
+        <%= f.label :password %>
+        <div class='ui left icon input'>
+          <%= f.password_field :password %>
+          <i class="lock icon"></i>
+        </div>
+      </div><br>
+
+      <div class="actions">
+        <%= f.submit "OK", class: "ui button" %>
+      </div>
+    <% end %>
+  </div>
+</div>

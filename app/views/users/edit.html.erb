@@ -1,6 +1,53 @@
-<h1>Editing User</h1>
+<%= render 'layouts/header' %>
 
-<%= render 'form', user: @user %>
+<h3>Edit Profile</h3>
 
-<%= link_to 'Show', @user %> |
-<%= link_to 'Back', users_path %>
+<div class='ui form'>
+  <div class='fields'>
+    <%= form_for(edit_user_path) do |f| %>
+
+      <div class='field'>
+        <%= f.label :image %>
+        <% if @user.avatar.blank? %>
+          <%= f.file_field :avatar, required: true %>
+        <% else %>
+          <%= f.file_field :avatar %>
+        <% end %>
+      </div>
+
+      <div class="field">
+        <%= f.label :name %>
+        <%= f.text_field :name %>
+      </div>
+
+      <div class="field">
+        <%= f.label :bio %>
+        <%= f.text_area :bio %>
+      </div>
+
+      <div class="field">
+        <%= f.label :email %>
+        <div class='ui left icon input'>
+          <%= f.email_field :email %>
+          <i class="mail icon"></i>
+        </div>
+      </div>
+
+      <div class="field">
+        <%= f.label :password %>
+        <div class='ui left icon input'>
+          <%= f.password_field :password %>
+          <i class="lock icon"></i>
+        </div>
+      </div><br>
+
+      <div class="actions">
+        <%= f.submit "OK", class: "ui button" %>
+        <%= link_to @user, method: :delete, class: 'ui button' do %>
+          <i class="trash large icon"></i> Account
+        <% end %>
+      </div>
+    <% end %>
+
+  </div>
+</div>

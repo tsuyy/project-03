@@ -1,4 +1,6 @@
-<h2>Log in</h2>
+<br><br><%= render 'layouts/header' %>
+
+<h2>Sign In</h2>
 
 <div class="ui container">
   <div class='ui form'>
@@ -7,15 +9,21 @@
 
       <div class='field'>
         <%= f.label :email %>
-        <%= f.email_field :email %>
+        <div class='ui left icon input'>
+          <%= f.email_field :email %>
+          <i class="mail icon"></i>
+        </div>
       </div>
 
       <div class='field'>
         <%= f.label :password %>
-        <%= f.password_field :password %>
+        <div class='ui left icon input'>
+          <%= f.password_field :password %>
+          <i class="lock icon"></i>
+        </div>
       </div><br>
 
-        <%= f.submit "Log in", class: "ui button" %>
+        <%= f.submit "OK", class: "ui button" %>
       <% end %>
     </div>
   </div>
