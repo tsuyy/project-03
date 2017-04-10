@@ -1,12 +1,8 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy, :settings]
+  before_action :correct_user, only: [   :edit, :update]
 
   def home
-  end
-
-  # GET /users
-  def index
-    @users = User.all
   end
 
   # GET /users/1
@@ -22,8 +18,6 @@ class UsersController < ApplicationController
   def edit
   end
 
-  def settings
-  end
 
   # POST /users
   def create
@@ -33,17 +27,18 @@ class UsersController < ApplicationController
       flash[:success] = "Welcome to Stellar!"
       redirect_to @user
     else
-      redirect_to root_path
+      redirect_to 'new'
     end
-
   end
 
   # PATCH/PUT /users/1
   def update
-    @user = User.find_by_id(params[:id])
-    @user.update(user_params)
-    flash[:success] = "Updated"
-    redirect_to user_path(@user)
+    if @user.update_attributes(user_params)
+      flash[:success] = "Updated"
+      redirect_to @user
+    else
+      render 'edit'
+    end
   end
 
   # DELETE /users/1
@@ -61,6 +56,10 @@ class UsersController < ApplicationController
 
     def user_params
       params.require(:user).permit(:name, :bio, :email, :password, :avatar)
+    end
+
+    def correct_user
+      redirect_to(root_path) unless current_user?(@user)
     end
 
 end

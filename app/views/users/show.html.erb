@@ -28,21 +28,20 @@
       <% end %>
     </div>
   </div>
+
   <div class="ten wide column">
     <div class='ui stackable two column grid'>
       <div class='column'>
         <div class="ui segment">
-          <img class="ui medium rounded image" src="https://semantic-ui.com/images/wireframe/square-image.png">
-        </div>
-      </div>
-      <div class='column'>
-        <div class="ui segment">
-          <img class="ui medium rounded image" src="https://semantic-ui.com/images/wireframe/square-image.png">
-        </div>
-      </div>
-      <div class='column'>
-        <div class="ui segment">
-          <img class="ui medium rounded image" src="https://semantic-ui.com/images/wireframe/square-image.png">
+          <% @user.entries.each do |entry| %>
+            <%if entry.avatar.blank? %>
+              <%= image_tag('https://semantic-ui.com/images/wireframe/square-image.png') %>
+            <% else %>
+              <%= image_tag(entry.avatar.url(:large), class: 'ui medium rounded image') %>
+            <% end %>
+              <p><%= entry.title %></p>
+              <p><%= entry.location %></p>
+          <% end %>
         </div>
       </div>
       <div class='column'>

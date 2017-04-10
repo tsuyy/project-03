@@ -3,18 +3,18 @@
       <!-- <iframe src="https://www.youtube.com/embed/PrrHve14fAA?start=11&end=36&controls=0&showinfo=0&rel=0&autoplay=1&loop=1&playlist=PrrHve14fAA" frameborder="0" allowfullscreen></iframe> -->
     </div>
 </div>
-
+<br>
 <br>
 <div class='ui container'>
   <div class="ui secondary  menu">
     <% if logged_in? %>
-      <%= link_to current_user do %>
+      <%= link_to entries_path do %>
         <div class='link item'><i class="grid layout large icon"></i></div>
       <% end %>
       <%= link_to current_user do %>
         <div class='link item'><i class="user large icon"></i></div>
       <% end %>
-      <%= link_to edit_user_path(current_user) do %>
+      <%= link_to new_entry_path(current_user) do %>
         <div class='link item'><i class="plus large icon"></i></div>
       <% end %>
       <%= link_to current_user do %>

@@ -4,12 +4,12 @@
 
 <div class='ui form'>
   <div class='fields'>
-    <%= form_for(edit_user_path) do |f| %>
+    <%= form_for @user do |f| %>
 
       <div class='field'>
         <%= f.label :image %>
         <% if @user.avatar.blank? %>
-          <%= f.file_field :avatar, required: true %>
+          <%= f.file_field :avatar %>
         <% else %>
           <%= f.file_field :avatar %>
         <% end %>
