@@ -1,0 +1,24 @@
+<%= render 'layouts/header' %>
+
+<h2 class="ui header">
+  <div class="content">
+    <%= @entry.caption %>
+    <div class="sub header"><%= @entry.location %></div>
+  </div>
+</h2>
+
+<% if current_user?(@user) %>
+  <%= image_tag(@entry.avatar.url(:large), class: 'ui centered medium rounded image') %>
+  <div class="ui two bottom attached buttons">
+    <div class="ui button">
+      <%= link_to edit_entry_path(@entry) do %>
+      <i class="write large icon"></i>
+      <% end %>
+    </div>
+    <div class="ui button">
+      <%= link_to delete_entry_path(@entry) do %>
+      <i class="trash large icon"></i>
+      <% end %>
+    </div>
+  </div>
+<% end %>

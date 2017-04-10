@@ -1,12 +1,12 @@
 <br><% if logged_in? %>
   <div class='ui secondary menu'>
-    <%= link_to current_user do %>
+    <%= link_to entries_path do %>
       <div class='link item'><i class="grid layout large icon"></i></div>
     <% end %>
     <%= link_to current_user do %>
       <div class='link item'><i class="user large icon"></i></div>
     <% end %>
-    <%= link_to edit_user_path(current_user) do %>
+    <%= link_to new_entry_path(current_user) do %>
       <div class='link item'><i class="plus large icon"></i></div>
     <% end %>
     <%= link_to current_user do %>
