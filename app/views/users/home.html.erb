@@ -1,8 +1,13 @@
-<div class="video-background">
-    <div class="video-foreground">
-      <!-- <iframe src="https://www.youtube.com/embed/PrrHve14fAA?start=11&end=36&controls=0&showinfo=0&rel=0&autoplay=1&loop=1&playlist=PrrHve14fAA" frameborder="0" allowfullscreen></iframe> -->
-    </div>
-</div>
+<div id="player"></div>
+
+<h1 class='ui center aligned header'>
+  <%= link_to root_path do %>
+    Stellar
+  <% end %>
+</h1>
+
+<button class="ui button" onclick="getLocation();">Get Location</button>
+
 <br>
 <br>
 <div class='ui container'>
@@ -33,52 +38,21 @@
         <button class='ui button'> Sign In </button>
       <% end %>
     <% end %>
+
     <div class="right menu">
       <div class="item">
-        <div class="ui icon input">
-          <input type="text" placeholder="Search...">
-          <i class="search link icon"></i>
-        </div>
+        <form class='ui form' id='forecast-search'>
+          <div class="ui icon input">
+            <input type="text" placeholder="Search..." id="location">
+            <i class="search link icon"></i>
+          </div>
+        </form>
       </div>
     </div>
   </div>
 
-  <h1 class='ui center aligned header'>
-    <%= link_to root_path do %>
-      Stellar
-    <% end %>
-  </h1>
 
-<script type="text/javascript">
+  <div id='results'>
+  </div>
 
-     function showLocation(position) {
-        var latitude = position.coords.latitude;
-        var longitude = position.coords.longitude;
-        alert(latitude + " ," + longitude);
-     }
-
-     function errorHandler(err) {
-        if(err.code == 1) {
-           alert("Error: Access is denied!");
-        }
-
-        else if( err.code == 2) {
-           alert("Error: Position is unavailable!");
-        }
-     }
-
-     function getLocation(){
-
-        if(navigator.geolocation){
-           navigator.geolocation.getCurrentPosition(showLocation, errorHandler);
-        }
-
-        else{
-           alert("Sorry, browser does not support geolocation!");
-        }
-     }
-
-  </script>
-
-  <button class="ui button" onclick="getLocation();">Get Location</button>
 </div>

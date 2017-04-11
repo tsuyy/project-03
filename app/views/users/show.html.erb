@@ -13,7 +13,7 @@
       <div class="content">
         <span class='header'><%= @user.name %></span>
         <div class="meta">
-          joined on <%= @user.created_at.strftime("%m/%d/%Y") %>
+          Joined on <%= @user.created_at.strftime("%m/%d/%Y") %>
         </div>
         <div class="bio">
           <%= @user.bio %>
@@ -31,24 +31,18 @@
 
   <div class="ten wide column">
     <div class='ui stackable two column grid'>
-      <div class='column'>
-        <div class="ui segment">
-          <% @user.entries.each do |entry| %>
-            <%if entry.avatar.blank? %>
-              <%= image_tag('https://semantic-ui.com/images/wireframe/square-image.png') %>
-            <% else %>
+      <% @user.entries.each do |entry| %>
+        <div class='column'>
+          <div class="ui segment">
+            <%= link_to show_entry_path(entry) do %>
               <%= image_tag(entry.avatar.url(:large), class: 'ui medium rounded image') %>
-            <% end %>
-              <p><%= entry.title %></p>
-              <p><%= entry.location %></p>
-          <% end %>
+            <% end %><br>
+            <div class="content">
+              <h3 class='ui centered header'><%= entry.caption %></h3>
+            </div>
+          </div>
         </div>
-      </div>
-      <div class='column'>
-        <div class="ui segment">
-          <img class="ui medium rounded image" src="https://semantic-ui.com/images/wireframe/square-image.png">
-        </div>
-      </div>
+      <% end %>
     </div>
   </div>
 </div>

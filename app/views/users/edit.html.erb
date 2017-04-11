@@ -2,17 +2,15 @@
 
 <h3>Edit Profile</h3>
 
+<div id="target"></div>
+
 <div class='ui form'>
   <div class='fields'>
     <%= form_for @user do |f| %>
 
       <div class='field'>
         <%= f.label :image %>
-        <% if @user.avatar.blank? %>
-          <%= f.file_field :avatar %>
-        <% else %>
-          <%= f.file_field :avatar %>
-        <% end %>
+        <%= f.file_field :avatar, id: 'pictureInput' %>
       </div>
 
       <div class="field">
