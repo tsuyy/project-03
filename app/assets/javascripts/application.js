@@ -33,24 +33,24 @@ function showLocation(position) {
 
 var data;
 var moonPhases = {
-  NewMoon: '',
-  WaxingCrescent: '',
-  FirstQuarter: '',
-  WaxingGibbous: 'http://img.clipartall.com/crescent-moon-clipart-phase-20clipart-crescent-moon-clip-art-267_297.png',
-  FullMoon: '',
-  WaningGibbous: '',
-  LastQuarter: '',
-  WaningCrescent: ''
+  New: 'https://image.ibb.co/h09sMQ/newmoon.jpg',
+  WaxingCrescent: 'https://image.ibb.co/kG1iT5/waxingcrescent.jpg',
+  FirstQuarter: 'https://image.ibb.co/m9xe1Q/firstquarter.jpg',
+  WaxingGibbous: 'https://image.ibb.co/ktQhMQ/waxinggibbous.jpg',
+  Full: 'https://image.ibb.co/caJ8vk/fullmoon.jpg',
+  WaningGibbous: 'https://image.ibb.co/b0Eyvk/wanninggibbous.jpg',
+  LastQuarter: 'https://image.ibb.co/ctc1Fk/lastquarter.jpg',
+  WaningCrescent: 'https://image.ibb.co/fiEbgQ/waningcrescent.jpg'
 }
 
 function onSuccess(json) {
   data = json;
 
   var htmlForecast = (`
-      <p id='city-name'><i class="marker large icon"></i> ${data.city}, ${data.state}</p>
-      <p id='moon-phase'>${data.moon_phase}</p>
-      <p id='curr-temp'>${data.imperial} °F | ${data.metric} °C</p>
-      <p id='cloud-cover'><i class="cloud large icon"></i> ${data.cloud_cover} %</p>
+      <h2>${data.city}, ${data.state}</h2>
+      <img src="${moonPhases[data.moon_phase]}" class="ui centered image">
+      <h3>${data.imperial} °F | ${data.metric} °C</h3>
+      <h3><i class="cloud large icon"></i> ${data.cloud_cover} %</h3>
     `);
 
     $('#results').html(htmlForecast);
@@ -110,10 +110,10 @@ $(document).on('turbolinks:load', function() {
     loading.removeClass('active');
 
     var htmlForecast = (`
-        <p id='city-name'><i class="marker large icon"></i> ${data.city}, ${data.state}</p>
-        <p id='moon-phase'>${data.moon_phase}</p>
-        <p id='curr-temp'>${data.imperial} °F | ${data.metric} °C</p>
-        <p id='cloud-cover'><i class="cloud large icon"></i> ${data.cloud_cover} %</p>
+        <h2> ${data.city}, ${data.state}</h2>
+        <img src="${moonPhases[data.moon_phase]}" class="ui centered image">
+        <h3>${data.imperial} °F | ${data.metric} °C</h3>
+        <h3><i class="cloud large icon"></i> ${data.cloud_cover} %</h3>
       `);
 
       $('#results').html(htmlForecast);
@@ -123,16 +123,12 @@ $(document).on('turbolinks:load', function() {
   $('#pictureInput').on('change', function(event) {
     var files = event.target.files;
     var image = files[0]
-    // here's the file size
-    console.log(image.size);
     var reader = new FileReader();
     reader.onload = function(file) {
       var img = new Image();
-      console.log(file);
       img.src = file.target.result;
       $('#target').html(img);
     }
     reader.readAsDataURL(image);
-    console.log(files);
   });
 });
