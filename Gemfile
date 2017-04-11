@@ -39,6 +39,8 @@ gem 'semantic-ui-sass'
 gem 'httparty'
 # paperclip
 gem 'paperclip'
+# Figaro
+gem "figaro"
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
