@@ -1,6 +1,6 @@
 <div class='ui form'>
   <div class='fields'>
-    <%= form_for @entry, html: { multipart: true } do |f| %>
+    <%= form_for entries_path, html: { multipart: true } do |f| %>
       <%= f.hidden_field :user_id %>
 
       <div class='field'>

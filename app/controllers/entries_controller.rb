@@ -23,9 +23,7 @@ class EntriesController < ApplicationController
 
   # POST /entries
   def create
-    entry = entry_params
-    entry[:user_id] = params[:user_id]
-    @entry = Entry.new(entry)
+    @entry = current_user.entries.build(entry_params)
     if @entry.save
       flash[:success] = "Posted!"
       redirect_to entries_path

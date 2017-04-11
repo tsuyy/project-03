@@ -1,14 +1,18 @@
 <%= render 'layouts/header' %>
 
-<h3>Entries</h3>
-
-<% @entries.each do |entry| %>
-    <%= image_tag(entry.avatar.url(:large), class: 'ui medium rounded image') %>
-    <p><%= entry.title %></p>
-    <p><%= entry.location %></p>
-    <p ><%= entry.user.name %> | <span>Posted <%= time_ago_in_words(entry.created_at) %> ago</p>
-    <h4><%= link_to entry.caption, show_entry_path(entry.id) %></h4>
-<% end %>
 
 
-<br>
+<div class='ui stackable three column grid container'>
+  <% @entries.each do |entry| %>
+    <div class='column'>
+      <div class="ui segment">
+        <%= link_to show_entry_path(entry) do %>
+        <%= image_tag(entry.avatar.url(:large), class: 'ui medium rounded image') %>
+        <% end %>
+        <p><%= entry.caption %></p>
+        <p><%= entry.location %></p>
+        <p ><%= entry.user.name %> | <span>Posted <%= time_ago_in_words(entry.created_at) %> ago</p>
+      </div>
+    </div>
+  <% end %>
+</div>

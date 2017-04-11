@@ -6,19 +6,23 @@
     <div class="sub header"><%= @entry.location %></div>
   </div>
 </h2>
+<div class="ui button">
+  <%= link_to edit_entry_path(@entry) do %>
+  <i class="write large icon"></i>
+  <% end %>
+</div>
+<div class="ui button">
+  <%= link_to delete_entry_path(@entry) do %>
+  <i class="trash large icon"></i>
+  <% end %>
+</div>
 
-<% if current_user?(@user) %>
+<!-- # <% if current_user?(@user) %> -->
+<%if @entry.avatar.blank? %>
+  <%= image_tag('https://semantic-ui.com/images/avatar/large/elliot.jpg') %>
+<% else %>
   <%= image_tag(@entry.avatar.url(:large), class: 'ui centered medium rounded image') %>
-  <div class="ui two bottom attached buttons">
-    <div class="ui button">
-      <%= link_to edit_entry_path(@entry) do %>
-      <i class="write large icon"></i>
-      <% end %>
-    </div>
-    <div class="ui button">
-      <%= link_to delete_entry_path(@entry) do %>
-      <i class="trash large icon"></i>
-      <% end %>
-    </div>
-  </div>
 <% end %>
+  <!-- <div class="ui two bottom attached buttons"> -->
+  <!-- </div> -->
+<!-- # <% end %> -->
