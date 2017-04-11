@@ -78,7 +78,7 @@ $(document).on('turbolinks:load', function() {
   var forecastSearch = $('form#forecast-search');
   var locationInput = $('input#location');
   var results = $('#results');
-  // var loading = $('#loading');
+  var loading = $('div.ui.inverted.dimmer');
 
   // AJAX: get weather forecast by search
   forecastSearch.on('submit', function handleSubmit(event) {
@@ -92,7 +92,7 @@ $(document).on('turbolinks:load', function() {
     }
 
     results.empty();
-    // loading.show();
+    loading.addClass('active');
 
     $.ajax({
       method: 'GET',
@@ -107,7 +107,8 @@ $(document).on('turbolinks:load', function() {
 
   function searchSuccess(json) {
     data = json;
-    console.log(json);
+    loading.removeClass('active');
+
     var htmlForecast = (`
         <p id='city-name'><i class="marker large icon"></i> ${data.city}, ${data.state}</p>
         <p id='moon-phase'>${data.moon_phase}</p>
