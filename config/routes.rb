@@ -11,20 +11,23 @@ Rails.application.routes.draw do
   delete '/users/:id',      to: 'users#destroy'
 
   # Entry routes
-  get    '/entries',                         to: 'entries#index'
-  post   '/entries',                         to: 'entries#create'
-  get    '/users/:user_id/entries/new',      to: 'entries#new',     as: 'new_entry'
-  get    '/users/:user_id/entries/:id/edit', to: 'entries#edit',    as: 'edit_entry'
-  get    '/users/:user_id/entries/:id',      to: 'entries#show',    as: 'show_entry'
-  patch  '/entries/:id',                     to: 'entries#update',  as: 'update_entry'
-  delete '/entries/:id',                     to: 'entries#destroy', as: 'delete_entry'
-
+  get    '/entries',          to: 'entries#index'
+  post   '/entries',          to: 'entries#create'
+  get    '/entries/new',      to: 'entries#new',     as: 'new_entry'
+  get    '/entries/:id/edit', to: 'entries#edit',    as: 'edit_entry'
+  get    '/entries/:id',      to: 'entries#show',    as: 'show_entry'
+  patch  '/entries/:id',      to: 'entries#update',  as: 'update_entry'
+  delete '/entries/:id',      to: 'entries#destroy', as: 'delete_entry'
 
   # Session routes
   get     '/login',    to: 'sessions#new'
   post    '/login',    to: 'sessions#create'
   get     '/logout',   to: 'sessions#destroy'
   delete  '/logout',   to: 'sessions#destroy'
+
+  # Search forecast endpoints
+  get     '/potato',   to: 'forecasts#by_geolocation'
+  get     '/eggplant', to: 'forecasts#by_search'
 
   # match "*path", to: 'application#page_not_found', via: :all
 
