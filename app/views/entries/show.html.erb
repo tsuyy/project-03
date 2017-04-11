@@ -1,28 +1,30 @@
 <%= render 'layouts/header' %>
 
-<h2 class="ui header">
+<h2 class="ui centered header">
   <div class="content">
     <%= @entry.caption %>
     <div class="sub header"><%= @entry.location %></div>
   </div>
 </h2>
-<div class="ui button">
-  <%= link_to edit_entry_path(@entry) do %>
-  <i class="write large icon"></i>
-  <% end %>
-</div>
-<div class="ui button">
-  <%= link_to delete_entry_path(@entry) do %>
-  <i class="trash large icon"></i>
-  <% end %>
-</div>
 
-<!-- # <% if current_user?(@user) %> -->
-<%if @entry.avatar.blank? %>
-  <%= image_tag('https://semantic-ui.com/images/avatar/large/elliot.jpg') %>
+<%if @entry.user.avatar.blank? %>
+  <%= image_tag('https://semantic-ui.com/images/avatar/large/elliot.jpg', class:'ui avatar image') %>
 <% else %>
-  <%= image_tag(@entry.avatar.url(:large), class: 'ui centered medium rounded image') %>
+  <%= image_tag(@entry.user.avatar.url(:thumb), class: 'ui avatar image') %>
 <% end %>
-  <!-- <div class="ui two bottom attached buttons"> -->
-  <!-- </div> -->
-<!-- # <% end %> -->
+<%= link_to user_path(@entry.user) do %>
+  <%= @entry.user.name %>
+<% end %> | <span><%= @entry.created_at.strftime("%m/%d/%Y") %></span>
+
+<%= image_tag(@entry.avatar.url(:large), class: 'ui centered large rounded image') %>
+
+<div class='ui compact menu'>
+  <% if current_user?(@entry.user) %>
+    <%= link_to edit_entry_path(@entry) do %>
+      <div class='link item'><i class="write large icon"></i></div>
+    <% end %>
+    <%= link_to delete_entry_path(@entry), method: :delete do %>
+      <div class='link item'><i class="trash large icon"></i></div>
+    <% end %>
+  <% end %>
+</div>

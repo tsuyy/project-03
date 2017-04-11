@@ -6,12 +6,20 @@
   <% @entries.each do |entry| %>
     <div class='column'>
       <div class="ui segment">
-        <%= link_to show_entry_path(entry) do %>
-        <%= image_tag(entry.avatar.url(:large), class: 'ui medium rounded image') %>
+        <%if entry.avatar.blank? %>
+          <%= image_tag('https://semantic-ui.com/images/wireframe/square-image.png') %>
+        <% else %>
+          <%= image_tag(entry.user.avatar.url(:thumb), class: 'ui avatar image') %>
         <% end %>
-        <p><%= entry.caption %></p>
-        <p><%= entry.location %></p>
-        <p ><%= entry.user.name %> | <span>Posted <%= time_ago_in_words(entry.created_at) %> ago</p>
+          <%= link_to user_path(entry.user) do %>
+              <%= entry.user.name %>
+            <% end %> | <span>Posted <%= time_ago_in_words(entry.created_at) %> ago</p>
+          <%= link_to show_entry_path(entry) do %>
+            <%= image_tag(entry.avatar.url(:large), class: 'ui medium rounded image') %>
+          <% end %><br>
+        <div class="content">
+          <h3 class='ui centered header'><%= entry.caption %></h3>
+        </div>
       </div>
     </div>
   <% end %>

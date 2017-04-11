@@ -35,8 +35,8 @@ class EntriesController < ApplicationController
   # PATCH/PUT /entries/1
   def update
     if @entry.update_attributes(entry_params)
-      flash[:success] = "Updated"
-      redirect_to entry_path
+      flash[:success] = "Entry updated"
+      redirect_to show_entry_path
     else
       flash[:error]
       render 'edit'
@@ -63,4 +63,5 @@ class EntriesController < ApplicationController
       @entry = current_user.entries.find_by(id: params[:id])
       redirect_to root_url if @entry.nil?
     end
+
 end
