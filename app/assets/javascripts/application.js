@@ -125,7 +125,7 @@ $(document).on('turbolinks:load', function() {
 
     var htmlError = (`
         <div id='modal-forecast'>
-          <h2> Oops! Forecast unavailable for this location <i class="meh icon"></i></h2>
+          <h2> Oops! Forecast is unavailable for this location <i class="meh icon"></i></h2>
         </div>
       `);
 

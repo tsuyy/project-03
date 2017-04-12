@@ -49,7 +49,7 @@ An app with weather forecast for stargazing, where users can share their astro p
 * Share posts to social media
 * Mailing system for astronomy news and forecasts
 * Implement bookmarks or likes or follow for users
-*
+* Implement light pollution map of some sort
 
 ## FIX BUGS
 * Can not fetch weather forecast for some of the posted entry locations
