@@ -2,22 +2,30 @@
   <div class="comment">
     <div class='content'>
       <a class="avatar"><%= image_tag(comment.user.avatar.url(:thumb), class: 'ui avatar image') %></a>
-      <a class="author"><%= comment.user.name%></a>
-      <div class="metadata">
-        <span class="date"><%= time_ago_in_words(comment.created_at) %> ago</span>
+      <div class='comment-wrapper'>
+        <a class="author"><%= comment.user.name%></a>
+        <div class="metadata">
+          <span class="date"><%= time_ago_in_words(comment.created_at) %> ago</span>
+        </div>
+        <div class='text'><%=comment.body %></div>
       </div>
-      <div class='text'><%=comment.body %></div>
       <div class="actions">
         <a class="reply">reply</a>
-        <%= link_to 'delete', comment, method: :delete %>
+        <% if current_user?(comment.user)%>
+          <%= link_to 'delete', comment, method: :delete %>
+        <% end %>
       </div>
 
       <%= form_for @new_comment, class: 'ui reply form' do |f|%>
         <%= f.hidden_field :commentable_id, value: @new_comment.commentable_id %>
         <%= f.hidden_field :commentable_type, value: @new_comment.commentable_type %>
         <%= f.hidden_field :comment_id, value: comment.id %>
-        <div class="field"><%= f.text_area :body %></div>
-        <div class="field"><%= submit_tag "Add Reply", class: 'ui submit button' %></div>
+        <div class="field toggle-reply"><%= f.text_area :body %></div>
+        <div class="field toggle-reply">
+          <%= button_tag( type: 'submit', class: 'ui submit button') do %>
+            <i class="reply icon"></i> Reply
+          <% end %>
+        </div>
       <% end %>
     </div>
 

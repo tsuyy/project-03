@@ -1,6 +1,6 @@
 class EntriesController < ApplicationController
   before_action :set_entry,    only: [:edit, :destroy, :show, :update ]
-  before_action :logged_in?,   only: [:edit, :destroy, :create]
+  before_action :logged_in?,   only: [:edit, :destroy, :create,       :index, :show]
   before_action :correct_user, only: [:edit, :destroy]
 
   # GET /entries
