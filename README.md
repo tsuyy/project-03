@@ -21,6 +21,7 @@ An app with weather forecast for stargazing, where users can share their astro p
 * [HTTParty](https://github.com/jnunemaker/httparty)
 * [semantic-ui-sass](https://github.com/doabit/semantic-ui-sass)
 * [figaro](https://github.com/laserlemon/figaro)
+* [acts_as_commentable_with_threading](https://github.com/elight/acts_as_commentable_with_threading)
 
 ## Usage
 1. `rails db:migrate`
@@ -47,6 +48,12 @@ An app with weather forecast for stargazing, where users can share their astro p
 ## Future Features
 * Share posts to social media
 * Mailing system for astronomy news and forecasts
+* Implement bookmarks or likes or follow for users
+*
+
+## FIX BUGS
+* Can not fetch weather forecast for some of the posted entry locations
+* Can not toggle individual reply text area
 
 ## Demo
 ![]()
