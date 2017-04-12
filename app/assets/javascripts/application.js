@@ -49,7 +49,7 @@ function onSuccess(json) {
   var htmlForecast = (`
       <h2>${data.city}, ${data.state}</h2>
       <img src="${moonPhases[data.moon_phase]}" class="ui centered image">
-      <h3>${data.imperial} °F | ${data.metric} °C</h3>
+      <h3>${data.imperial} °F / ${data.metric} °C</h3>
       <h3><i class="cloud large icon"></i> ${data.cloud_cover} %</h3>
     `);
 
@@ -99,7 +99,8 @@ $(document).on('turbolinks:load', function() {
       url: '/eggplant',
       data: { q: q },
       dataType: 'json',
-      success: searchSuccess
+      success: searchSuccess,
+      error: searchError
     });
 
     forecastSearch[0].reset();
@@ -119,6 +120,19 @@ $(document).on('turbolinks:load', function() {
       $('#results').html(htmlForecast);
   }
 
+  function searchError(error) {
+    loading.removeClass('active');
+
+    var htmlError = (`
+        <div id='modal-forecast'>
+          <h2> Oops! Forecast unavailable for this location <i class="meh icon"></i></h2>
+        </div>
+      `);
+
+      $('#results').html(htmlError);
+      $('.forecast.content').html(htmlError);
+  }
+
   // Preview before uploading image
   $('#pictureInput').on('change', function(event) {
     var files = event.target.files;
@@ -131,4 +145,41 @@ $(document).on('turbolinks:load', function() {
     }
     reader.readAsDataURL(image);
   });
+
+  // Collapsable reply
+  $('a.reply').on('click', function() {
+    $('.toggle-reply').toggle('slow');
+  });
+
+  // Entry show location modal + forecast
+  $('a#map-modal').on('click', function(event) {
+    event.preventDefault();
+    $('.ui.basic.modal').modal('show');
+
+    var q = $('a#map-modal').text();
+
+    $.ajax({
+      method: 'GET',
+      url: '/eggplant',
+      data: { q: q },
+      dataType: 'json',
+      success: modalSuccess,
+      error: searchError
+    });
+  });
+
+  function modalSuccess(json) {
+    data = json;
+
+    var htmlForecast = (`
+        <div id='modal-forecast'>
+          <h3>${data.moon_phase}</h3>
+          <h3>${data.imperial} °F / ${data.metric} °C</h3>
+          <h3><i class="cloud large icon"></i> ${data.cloud_cover} %</h3>
+        </div>
+      `);
+
+      $('.forecast.content').html(htmlForecast);
+  }
+
 });

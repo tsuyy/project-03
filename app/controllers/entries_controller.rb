@@ -1,6 +1,6 @@
 class EntriesController < ApplicationController
   before_action :set_entry,    only: [:edit, :destroy, :show, :update ]
-  before_action :logged_in?,   only: [:edit, :destroy, :create]
+  before_action :logged_in?,   only: [:edit, :destroy, :create,       :index, :show]
   before_action :correct_user, only: [:edit, :destroy]
 
   # GET /entries
@@ -10,6 +10,7 @@ class EntriesController < ApplicationController
 
   # GET /entries/1
   def show
+    @new_comment = Comment.build_from(@entry, current_user.id, "")
   end
 
   # GET /entries/new

@@ -17,7 +17,7 @@
 @import "semantic-ui";
 @import url('https://fonts.googleapis.com/css?family=Josefin+Sans|Petit+Formal+Script|Quicksand');
 
-body, h2, h3 {
+body, h2, h3, .ui.icon.header {
   font-family: 'Josefin Sans', sans-serif!important;
 }
 
@@ -34,6 +34,47 @@ h1 {
   }
 }
 
-#results {
+#results, #modal-forecast {
   text-align: center;
+}
+
+#taget img{
+  max-width: 60%!important;
+}
+
+.ui.comments,
+#img-header {
+  margin-left: 30%!important;
+}
+
+.show-header {
+  margin-left: 30%;
+  margin-bottom: 10px;
+  font-size: 17px;
+}
+
+.show-buttons {
+  display: inline-flex;
+  float: right;
+  margin-right: 42%;
+}
+
+textarea#comment_body {
+  width: 450px;
+  height: 85px;
+}
+
+
+.comment-wrapper {
+  font-size: 16px;
+  margin-left: 8%;
+  padding-top: 5px;
+}
+
+a.avatar {
+  width: 3em!important;
+}
+
+.toggle-reply {
+  display: none;
 }

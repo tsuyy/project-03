@@ -1,0 +1,12 @@
+<%= form_for @new_comment, class: 'ui form' do |f| %>
+  <%= f.hidden_field :commentable_id, value: @new_comment.commentable_id %>
+  <%= f.hidden_field :commentable_type, value: @new_comment.commentable_type %>
+  <div class="field">
+    <%= f.text_area :body %>
+  </div>
+  <div class="field">
+    <%= button_tag(class: 'ui submit button') do %>
+      <i class="talk icon"></i> Comment
+    <% end %>
+  </div>
+<% end %>

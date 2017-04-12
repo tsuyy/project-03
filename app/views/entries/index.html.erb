@@ -13,7 +13,7 @@
         <% end %>
           <%= link_to user_path(entry.user) do %>
               <%= entry.user.name %>
-            <% end %> | <span>Posted <%= time_ago_in_words(entry.created_at) %> ago</p>
+            <% end %> <span> <%= time_ago_in_words(entry.created_at) %> ago</p>
           <%= link_to show_entry_path(entry) do %>
             <%= image_tag(entry.avatar.url(:large), class: 'ui medium rounded image') %>
           <% end %><br>
