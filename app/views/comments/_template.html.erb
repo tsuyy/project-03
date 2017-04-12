@@ -1,0 +1,7 @@
+<div class="ui threaded comments">
+  <h3 class="ui dividing header">Comments</h3>
+  <%= render partial: "comments/form", locals: {new_comment: new_comment} %>
+  <div class="comments-container">
+    <%= render partial: "comments/reply", locals: {comments: commentable.root_comments} %>
+  </div>
+</div>

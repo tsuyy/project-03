@@ -18,13 +18,15 @@
 
 <%= image_tag(@entry.avatar.url(:large), class: 'ui centered large rounded image') %>
 
-<div class='ui compact menu'>
-  <% if current_user?(@entry.user) %>
+<% if current_user?(@entry.user) %>
+  <div class='ui compact menu'>
     <%= link_to edit_entry_path(@entry) do %>
       <div class='link item'><i class="write large icon"></i></div>
     <% end %>
     <%= link_to delete_entry_path(@entry), method: :delete do %>
       <div class='link item'><i class="trash large icon"></i></div>
     <% end %>
-  <% end %>
-</div>
+  </div>
+<% end %>
+
+<%= render partial: "comments/template", locals: {commentable: @entry, new_comment: @comment} %>

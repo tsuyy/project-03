@@ -10,6 +10,7 @@ class EntriesController < ApplicationController
 
   # GET /entries/1
   def show
+    @new_comment = Comment.build_from(@entry, current_user.id, "")
   end
 
   # GET /entries/new
