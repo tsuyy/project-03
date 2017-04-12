@@ -9,10 +9,7 @@
     <%= form_for :entry, method: :patch, url: {action: 'update'} do |f| %>
       <%= f.hidden_field :user_id %>
 
-      <div class='field'>
-        <%= f.label :image %>
-        <%= f.file_field :avatar, id: 'pictureInput' %>
-      </div>
+      <%= image_tag(@entry.avatar.url(:large), class: 'ui centered large rounded image') %>
 
       <div class="field">
         <%= f.label :caption %>

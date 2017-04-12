@@ -1,32 +1,59 @@
 <%= render 'layouts/header' %>
 
-<h2 class="ui centered header">
-  <div class="content">
-    <%= @entry.caption %>
-    <div class="sub header"><%= @entry.location %></div>
-  </div>
-</h2>
-
-<%if @entry.user.avatar.blank? %>
-  <%= image_tag('https://semantic-ui.com/images/avatar/large/elliot.jpg', class:'ui avatar image') %>
-<% else %>
-  <%= image_tag(@entry.user.avatar.url(:thumb), class: 'ui avatar image') %>
-<% end %>
-<%= link_to user_path(@entry.user) do %>
-  <%= @entry.user.name %>
-<% end %> | <span><%= @entry.created_at.strftime("%m/%d/%Y") %></span>
+<div class='show-header'>
+  <%if @entry.user.avatar.blank? %>
+    <%= image_tag('https://semantic-ui.com/images/avatar/large/elliot.jpg', class:'ui avatar image') %>
+  <% else %>
+    <%= image_tag(@entry.user.avatar.url(:thumb), class: 'ui avatar image') %>
+  <% end %>
+  <%= link_to user_path(@entry.user) do %>
+    <%= @entry.user.name %>
+  <% end %>  <span><%= @entry.created_at.strftime("%m/%d/%Y") %></span>
+  <% if current_user?(@entry.user) %>
+    <span class='show-buttons'>
+      <%= link_to edit_entry_path(@entry) do %>
+        <div class='link item'><i class="write large icon"></i></div>
+      <% end %>
+      <%= link_to delete_entry_path(@entry), method: :delete do %>
+        <div class='link item'><i class="trash large icon"></i></div>
+      <% end %>
+    </span>
+  <% end %>
+</div>
 
 <%= image_tag(@entry.avatar.url(:large), class: 'ui centered large rounded image') %>
 
-<% if current_user?(@entry.user) %>
-  <div class='ui compact menu'>
-    <%= link_to edit_entry_path(@entry) do %>
-      <div class='link item'><i class="write large icon"></i></div>
-    <% end %>
-    <%= link_to delete_entry_path(@entry), method: :delete do %>
-      <div class='link item'><i class="trash large icon"></i></div>
-    <% end %>
+<h2 class="ui header" >
+  <div class="content" id="img-header">
+    <%= @entry.caption %>
+    <div class="sub header">
+      <a id='map-modal' href='#'>
+        <%= @entry.location %>
+      </a>
+    </div>
   </div>
-<% end %>
+</h2>
 
 <%= render partial: "comments/template", locals: {commentable: @entry, new_comment: @comment} %>
+
+<div class="ui basic modal">
+  <div class="ui icon header">
+    <i class="map icon"></i>
+    <%= @entry.location %>
+  </div>
+  <div class="content">
+    <iframe width="100%" height="350" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/search?q=<%= @entry.location %>&key=AIzaSyBmkOMQR7DSJ1IP7y6Bg3Uoxq4JeZH4MjM" allowfullscreen></iframe>
+  </div>
+  <div class="ui icon header">
+    <i class="moon icon"></i>
+    Today's Forecast
+  </div>
+  <div class="forecast content">
+  </div>
+  <div class="actions">
+    <div class="ui green ok inverted button">
+      <i class="checkmark icon"></i>
+      COOL
+    </div>
+  </div>
+</div>
