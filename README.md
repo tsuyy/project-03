@@ -56,8 +56,7 @@ An app with weather forecast for stargazing, where users can share their astro p
 * Can not toggle individual reply text area
 
 ## Demo
-![]()
-
+![](http://i.makeagif.com/media/4-13-2017/RYy-Do.gif)
 
 ## Heroku
 [Check it out here!](https://s-t-e-l-l-a-r.herokuapp.com/)
