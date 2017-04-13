@@ -43,6 +43,8 @@ gem 'paperclip'
 gem "figaro"
 # comments
 gem 'acts_as_commentable_with_threading'
+# postresql for heroku
+gem 'rails_12factor', group: :production
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
