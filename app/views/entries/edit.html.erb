@@ -5,7 +5,7 @@
 
   <div id="target"></div>
 
-  <div class='ui form'>
+  <div class='ui form edit-entry'>
     <div class='fields'>
       <%= form_for :entry, method: :patch, url: {action: 'update'} do |f| %>
         <%= f.hidden_field :user_id %>

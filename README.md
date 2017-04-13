@@ -43,12 +43,12 @@ An app with weather forecast for stargazing, where users can share their astro p
 * CRUD
 * RESTful API
 * User Authentication and Authorization
-*
+
 
 ## Future Features
 * Share posts to social media
 * Mailing system for astronomy news and forecasts
-* Implement bookmarks or likes or follow for users
+* Implement bookmarks / likes / follow for users
 * Implement light pollution map of some sort
 
 ## FIX BUGS
