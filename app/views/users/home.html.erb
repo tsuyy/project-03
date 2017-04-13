@@ -1,58 +1,61 @@
-<div id="player"></div>
+<div class="video-background">
+  <div class="video-foreground">
+    <iframe width="1280" height="750" id="vid-bg" src="https://www.youtube.com/embed/PrrHve14fAA?start=11&end=26controls=0&showinfo=0&rel=0&autoplay=1&loop=1&playlist=PrrHve14fAA" frameborder="0" allowfullscreen></iframe>
+  </div>
+</div>
 
-<h1 class='ui center aligned header'>
-  <%= link_to root_path do %>
-    Stellar
-  <% end %>
-</h1>
-
-<button class="ui button" onclick="getLocation();">Get Location</button>
-
-<br>
-<br>
-<div class='ui container'>
-  <div class="ui secondary  menu">
-    <% if logged_in? %>
-      <%= link_to entries_path do %>
-        <div class='link item'><i class="grid layout large icon"></i></div>
-      <% end %>
-      <%= link_to current_user do %>
-        <div class='link item'><i class="user large icon"></i></div>
-      <% end %>
-      <%= link_to new_entry_path(current_user) do %>
-        <div class='link item'><i class="plus large icon"></i></div>
-      <% end %>
-      <%= link_to logout_path, method: "delete" do %>
-        <div class='link item'><i class="sign out large icon"></i></div>
+<div class='content-container'>
+  <div class='ui container'>
+    <h1 class='ui center aligned header' id='stellar'>
+      <%= link_to root_path do %>
+        Stellar
       <% end %>
 
-    <% else %>
-      <%= link_to new_user_path do %>
-        <button class='ui button'> Sign Up </button>
+    </h1>
+    <div class="ui secondary  menu">
+      <% if logged_in? %>
+        <%= link_to entries_path do %>
+          <div class='link item'><i class="grid layout large icon"></i></div>
+        <% end %>
+        <%= link_to current_user do %>
+          <div class='link item'><i class="user large icon"></i></div>
+        <% end %>
+        <%= link_to new_entry_path(current_user) do %>
+          <div class='link item'><i class="plus large icon"></i></div>
+        <% end %>
+        <%= link_to logout_path, method: "delete" do %>
+          <div class='link item'><i class="sign out large icon"></i></div>
+        <% end %>
+
+      <% else %>
+        <%= link_to login_path do %>
+          <button class='ui button'> Sign In </button>
+        <% end %>
+
+        <%= link_to new_user_path do %>
+          <button class='ui button'> Sign Up </button>
+        <% end %>
       <% end %>
 
-      <%= link_to login_path do %>
-        <button class='ui button'> Sign In </button>
-      <% end %>
-    <% end %>
-
-    <div class="right menu">
-      <div class="item">
-        <form class='ui form' id='forecast-search'>
-          <div class="ui icon input">
-            <input type="text" placeholder="Search..." id="location">
-            <i class="search link icon"></i>
-          </div>
-        </form>
+      <div class="right menu">
+        <button class="item" onclick="getLocation();" data-tooltip="Click Me" data-position="top left" data-inverted="">
+          <i class="location arrow large icon"></i>
+        </button>
+        <div class="item">
+          <form class='ui form' id='forecast-search'>
+            <div class="ui icon input">
+              <input type="text" placeholder="Search..." id="location">
+              <i class="search link icon"></i>
+            </div>
+          </form>
+        </div>
       </div>
     </div>
-  </div>
 
+    <div class="ui inverted dimmer">
+      <div class="ui large text loader">Loading</div>
+    </div>
+    <div id='results'></div>
 
-  <div class="ui inverted dimmer">
-    <div class="ui large text loader">Loading</div>
   </div>
-  <div id='results'>
-  </div>
-
 </div>

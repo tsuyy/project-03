@@ -1,26 +1,26 @@
-<%= render 'layouts/header' %>
+<div class='ui container'>
+  <%= render 'layouts/header' %>
 
-
-
-<div class='ui stackable three column grid container'>
-  <% @entries.each do |entry| %>
-    <div class='column'>
-      <div class="ui segment">
-        <%if entry.avatar.blank? %>
-          <%= image_tag('https://semantic-ui.com/images/wireframe/square-image.png') %>
-        <% else %>
-          <%= image_tag(entry.user.avatar.url(:thumb), class: 'ui avatar image') %>
-        <% end %>
-          <%= link_to user_path(entry.user) do %>
-              <%= entry.user.name %>
-            <% end %> <span> <%= time_ago_in_words(entry.created_at) %> ago</p>
-          <%= link_to show_entry_path(entry) do %>
-            <%= image_tag(entry.avatar.url(:large), class: 'ui medium rounded image') %>
-          <% end %><br>
-        <div class="content">
-          <h3 class='ui centered header'><%= entry.caption %></h3>
+  <div class='ui stackable three column grid container'>
+    <% @entries.each do |entry| %>
+      <div class='column'>
+        <div class="ui segment">
+          <%if entry.avatar.blank? %>
+            <%= image_tag('https://semantic-ui.com/images/wireframe/square-image.png') %>
+          <% else %>
+            <%= image_tag(entry.user.avatar.url(:thumb), class: 'ui avatar image') %>
+          <% end %>
+            <%= link_to user_path(entry.user) do %>
+                <%= entry.user.name %>
+              <% end %> <span> <%= time_ago_in_words(entry.created_at) %> ago</p>
+            <%= link_to show_entry_path(entry) do %>
+              <%= image_tag(entry.avatar.url(:large), class: 'ui medium rounded image') %>
+            <% end %><br>
+          <div class="content">
+            <h3 class='ui centered header'><%= entry.caption %></h3>
+          </div>
         </div>
       </div>
-    </div>
-  <% end %>
+    <% end %>
+  </div>
 </div>

@@ -1,35 +1,37 @@
-<%= render 'layouts/header' %>
+<div class='ui container'>
+  <%= render 'layouts/header' %>
 
-<h3>Edit Entry</h3>
+  <h2 class='ui centered header'>Edit Entry</h2>
 
-<div id="target"></div>
+  <div id="target"></div>
 
-<div class='ui form'>
-  <div class='fields'>
-    <%= form_for :entry, method: :patch, url: {action: 'update'} do |f| %>
-      <%= f.hidden_field :user_id %>
+  <div class='ui form'>
+    <div class='fields'>
+      <%= form_for :entry, method: :patch, url: {action: 'update'} do |f| %>
+        <%= f.hidden_field :user_id %>
 
-      <%= image_tag(@entry.avatar.url(:large), class: 'ui centered large rounded image') %>
+        <%= image_tag(@entry.avatar.url(:large), class: 'ui centered large rounded image') %>
 
-      <div class="field">
-        <%= f.label :caption %>
-        <div class='ui left icon input'>
-          <%= f.text_field :caption %>
-          <i class="talk outline icon"></i>
+        <div class="field">
+          <%= f.label :caption %>
+          <div class='ui left icon input'>
+            <%= f.text_field :caption %>
+            <i class="talk outline icon"></i>
+          </div>
         </div>
-      </div>
 
-      <div class="field">
-        <%= f.label :location %>
-        <div class='ui left icon input'>
-          <%= f.text_field :location %>
-          <i class="location arrow icon"></i>
+        <div class="field">
+          <%= f.label :location %>
+          <div class='ui left icon input'>
+            <%= f.text_field :location %>
+            <i class="location arrow icon"></i>
+          </div>
+        </div><br>
+
+        <div class="actions">
+          <%= f.submit "OK", class: "ui button" %>
         </div>
-      </div><br>
-
-      <div class="actions">
-        <%= f.submit "OK", class: "ui button" %>
-      </div>
-    <% end %>
+      <% end %>
+    </div>
   </div>
 </div>

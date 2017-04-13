@@ -1,48 +1,50 @@
-<%= render 'layouts/header' %>
+<div class='ui container'>
+  <%= render 'layouts/header' %>
 
-<div class="ui stackable grid container">
-  <div class="six wide column">
-    <div class="ui card">
-      <div class="image">
-        <%if @user.avatar.blank? %>
-          <%= image_tag('https://semantic-ui.com/images/avatar/large/elliot.jpg') %>
-        <% else %>
-          <%= image_tag(@user.avatar.url(:medium)) %>
-        <% end %>
-      </div>
-      <div class="content">
-        <span class='header'><%= @user.name %></span>
-        <div class="meta">
-          Joined on <%= @user.created_at.strftime("%m/%d/%Y") %>
-        </div>
-        <div class="bio">
-          <%= @user.bio %>
-        </div>
-      </div>
-      <% if current_user?(@user) %>
-        <div class="extra content">
-          <%= link_to edit_user_path(@user) do %>
-            <div class='right floated'><i class="write large icon"></i></div>
+  <div class="ui stackable grid container">
+    <div class="six wide column">
+      <div class="ui card">
+        <div class="image">
+          <%if @user.avatar.blank? %>
+            <%= image_tag('https://semantic-ui.com/images/avatar/large/elliot.jpg') %>
+          <% else %>
+            <%= image_tag(@user.avatar.url(:medium)) %>
           <% end %>
         </div>
-      <% end %>
-    </div>
-  </div>
-
-  <div class="ten wide column">
-    <div class='ui stackable two column grid'>
-      <% @user.entries.each do |entry| %>
-        <div class='column'>
-          <div class="ui segment">
-            <%= link_to show_entry_path(entry) do %>
-              <%= image_tag(entry.avatar.url(:large), class: 'ui medium rounded image') %>
-            <% end %><br>
-            <div class="content">
-              <h3 class='ui centered header'><%= entry.caption %></h3>
-            </div>
+        <div class="content">
+          <span class='header'><%= @user.name %></span>
+          <div class="meta">
+            Joined on <%= @user.created_at.strftime("%m/%d/%Y") %>
+          </div>
+          <div class="bio">
+            <%= @user.bio %>
           </div>
         </div>
-      <% end %>
+        <% if current_user?(@user) %>
+          <div class="extra content">
+            <%= link_to edit_user_path(@user) do %>
+              <div class='right floated'><i class="write large icon"></i></div>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="ten wide column">
+      <div class='ui stackable two column grid'>
+        <% @user.entries.each do |entry| %>
+          <div class='column'>
+            <div class="ui segment">
+              <%= link_to show_entry_path(entry) do %>
+                <%= image_tag(entry.avatar.url(:large), class: 'ui medium rounded image') %>
+              <% end %><br>
+              <div class="content">
+                <h3 class='ui centered header'><%= entry.caption %></h3>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>

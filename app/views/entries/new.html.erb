@@ -1,39 +1,41 @@
-<%= render 'layouts/header' %>
+<div class='ui container'>
+  <%= render 'layouts/header' %>
 
-<h3>New Entry</h3>
+  <h2 class='ui centered header'>New Entry</h2>
 
-<div id="target">
-</div>
+  <div id="target">
+  </div>
 
-<div class='ui form'>
-  <div class='fields'>
-    <%= form_for [@entry.user, @entry] do |f| %>
-      <%= f.hidden_field :user_id %>
+  <div class='ui form new_entry'>
+    <div class='fields'>
+      <%= form_for [@entry.user, @entry] do |f| %>
+        <%= f.hidden_field :user_id %>
 
-      <div class='field'>
-        <%= f.label :image %>
-        <%= f.file_field :avatar, id:'pictureInput', required: true %>
-      </div>
-
-      <div class="field">
-        <%= f.label :caption %>
-        <div class='ui left icon input'>
-          <%= f.text_field :caption %>
-          <i class="talk outline icon"></i>
+        <div class='field'>
+          <%= f.label :image %>
+          <%= f.file_field :avatar, id:'pictureInput', required: true %>
         </div>
-      </div>
 
-      <div class="field">
-        <%= f.label :location %>
-        <div class='ui left icon input'>
-          <%= f.text_field :location %>
-          <i class="location arrow icon"></i>
+        <div class="field">
+          <%= f.label :caption %>
+          <div class='ui left icon input'>
+            <%= f.text_field :caption %>
+            <i class="talk outline icon"></i>
+          </div>
         </div>
-      </div><br>
 
-      <div class="actions">
-        <%= f.submit "OK", class: "ui button" %>
-      </div>
-    <% end %>
+        <div class="field">
+          <%= f.label :location %>
+          <div class='ui left icon input'>
+            <%= f.text_field :location %>
+            <i class="location arrow icon"></i>
+          </div>
+        </div><br>
+
+        <div class="actions">
+          <%= f.submit "OK", class: "ui button" %>
+        </div>
+      <% end %>
+    </div>
   </div>
 </div>

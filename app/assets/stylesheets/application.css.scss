@@ -34,13 +34,35 @@ h1 {
   }
 }
 
+label {
+  font-size: 17px!important;
+  padding-top: 12px;
+}
+
 #results, #modal-forecast {
   text-align: center;
 }
 
-#taget img{
-  max-width: 60%!important;
+// Forms
+
+form.new_user {
+  margin-left: 43%;
 }
+
+form.edit_user {
+  margin-left: 37%;
+}
+
+.signin {
+  margin-left: 42%;
+}
+
+
+.new_entry {
+  margin-left: 21%;
+}
+
+// Comments
 
 .ui.comments,
 #img-header {
@@ -77,4 +99,56 @@ a.avatar {
 
 .toggle-reply {
   display: none;
+}
+
+// Video
+
+* { box-sizing: border-box; }
+
+.video-background {
+  background: #fff;
+  position: fixed;
+  top: 0; right: 0; bottom: 0; left: 0;
+  z-index: -99;
+}
+.video-foreground,
+.video-background iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+@media (min-aspect-ratio: 16/9) {
+  .video-foreground { height: 300%; top: -100%; }
+}
+@media (max-aspect-ratio: 16/9) {
+  .video-foreground { width: 300%; left: -100%; }
+}
+// @media all and (max-width: 600px) {
+//
+// }
+// @media all and (max-width: 500px) {
+//
+// }
+
+.content-container {
+  background: white;
+    z-index: 2;
+    position: relative;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: 0;
+    padding: 0;
+    min-width: 100vw;
+    margin-top: 115vh;
+    height: 100vh;
+}
+
+#stellar {
+  padding-top: 3%;
 }

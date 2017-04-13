@@ -16,6 +16,19 @@
 //= require semantic-ui
 //= require_tree .
 
+// Global variables
+var data;
+var moonPhases = {
+  New: 'https://image.ibb.co/caJ8vk/fullmoon.jpg',
+  WaxingCrescent: 'https://image.ibb.co/kG1iT5/waxingcrescent.jpg',
+  FirstQuarter: 'https://image.ibb.co/m9xe1Q/firstquarter.jpg',
+  WaxingGibbous: 'https://image.ibb.co/ktQhMQ/waxinggibbous.jpg',
+  Full: 'https://image.ibb.co/h09sMQ/newmoon.jpg',
+  WaningGibbous: 'https://image.ibb.co/b0Eyvk/wanninggibbous.jpg',
+  LastQuarter: 'https://image.ibb.co/ctc1Fk/lastquarter.jpg',
+  WaningCrescent: 'https://image.ibb.co/fiEbgQ/waningcrescent.jpg'
+}
+
 // AJAX: get weather forecast by user geolocation
 function showLocation(position) {
    var lat = position.coords.latitude;
@@ -29,18 +42,7 @@ function showLocation(position) {
      dataType: 'json',
      success: onSuccess
    });
-}
 
-var data;
-var moonPhases = {
-  New: 'https://image.ibb.co/h09sMQ/newmoon.jpg',
-  WaxingCrescent: 'https://image.ibb.co/kG1iT5/waxingcrescent.jpg',
-  FirstQuarter: 'https://image.ibb.co/m9xe1Q/firstquarter.jpg',
-  WaxingGibbous: 'https://image.ibb.co/ktQhMQ/waxinggibbous.jpg',
-  Full: 'https://image.ibb.co/caJ8vk/fullmoon.jpg',
-  WaningGibbous: 'https://image.ibb.co/b0Eyvk/wanninggibbous.jpg',
-  LastQuarter: 'https://image.ibb.co/ctc1Fk/lastquarter.jpg',
-  WaningCrescent: 'https://image.ibb.co/fiEbgQ/waningcrescent.jpg'
 }
 
 function onSuccess(json) {
@@ -113,7 +115,7 @@ $(document).on('turbolinks:load', function() {
     var htmlForecast = (`
         <h2> ${data.city}, ${data.state}</h2>
         <img src="${moonPhases[data.moon_phase]}" class="ui centered image">
-        <h3>${data.imperial} °F | ${data.metric} °C</h3>
+        <h3>${data.imperial} °F / ${data.metric} °C</h3>
         <h3><i class="cloud large icon"></i> ${data.cloud_cover} %</h3>
       `);
 
