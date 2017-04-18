@@ -21,11 +21,11 @@ var data;
 var moonPhases = {
   New: 'https://image.ibb.co/caJ8vk/fullmoon.jpg',
   WaxingCrescent: 'https://image.ibb.co/kG1iT5/waxingcrescent.jpg',
-  FirstQuarter: 'https://image.ibb.co/m9xe1Q/firstquarter.jpg',
+  First: 'https://image.ibb.co/m9xe1Q/firstquarter.jpg',
   WaxingGibbous: 'https://image.ibb.co/ktQhMQ/waxinggibbous.jpg',
   Full: 'https://image.ibb.co/h09sMQ/newmoon.jpg',
   WaningGibbous: 'https://image.ibb.co/b0Eyvk/wanninggibbous.jpg',
-  LastQuarter: 'https://image.ibb.co/ctc1Fk/lastquarter.jpg',
+  Last: 'https://image.ibb.co/ctc1Fk/lastquarter.jpg',
   WaningCrescent: 'https://image.ibb.co/fiEbgQ/waningcrescent.jpg'
 }
 

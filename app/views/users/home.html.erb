@@ -1,6 +1,6 @@
 <div class="video-background">
   <div class="video-foreground">
-    <iframe width="1280" height="750" id="vid-bg" src="https://www.youtube.com/embed/PrrHve14fAA?start=11&end=26controls=0&showinfo=0&rel=0&autoplay=1&loop=1&playlist=PrrHve14fAA" frameborder="0" allowfullscreen></iframe>
+    <iframe id="vid-bg" src="https://www.youtube.com/embed/PrrHve14fAA?start=11&end=26controls=0&showinfo=0&rel=0&autoplay=1&loop=1&playlist=PrrHve14fAA" frameborder="0" allowfullscreen></iframe>
   </div>
 </div>
 
@@ -37,20 +37,18 @@
         <% end %>
       <% end %>
 
-      <div class="right menu">
-        <button class="item" onclick="getLocation();" data-tooltip="Click Me" data-position="top left" data-inverted="">
-          <i class="location arrow large icon"></i>
-        </button>
-        <div class="item">
-          <form class='ui form' id='forecast-search'>
-            <div class="ui icon input">
-              <input type="text" placeholder="Search..." id="location">
-              <i class="search link icon"></i>
-            </div>
-          </form>
+    <div class="right menu">
+      <button class="item" onclick="getLocation();" data-tooltip="Click Me" data-position="top left" data-inverted="">
+        <i class="location arrow large icon"></i>
+      </button>
+      <form class='ui form' id='forecast-search'>
+        <div class="ui icon input">
+          <input type="text" placeholder="Search..." id="location">
+          <i class="search link icon"></i>
         </div>
-      </div>
+      </form>
     </div>
+  </div>
 
     <div class="ui inverted dimmer">
       <div class="ui large text loader">Loading</div>
