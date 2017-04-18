@@ -43,38 +43,26 @@ label {
   text-align: center;
 }
 
+.shadow {
+  box-shadow: 1px 5px 10px rgba(6, 2, 2, 0.26);
+}
+
 // Forms
-
-form.new_user {
-  margin-left: 43%;
-}
-
-form.edit_user {
-  margin-left: 37%;
-}
-
-.signin {
-  margin-left: 42%;
-}
-
-
-.new_entry {
-  margin-left: 21%;
-}
-
-.edit-entry {
-  margin-left: 30%;
+form.align-form {
+  margin: 0 auto;
+  width: 300px;
 }
 
 // Comments
-
 .ui.comments,
 #img-header {
-  margin-left: 30%!important;
+  width: 450px;
+  margin: 1% auto 1%;
 }
 
 .show-header {
-  margin-left: 30%;
+  margin: 0 auto;
+  width: 450px;
   margin-bottom: 10px;
   font-size: 17px;
 }
@@ -82,14 +70,12 @@ form.edit_user {
 .show-buttons {
   display: inline-flex;
   float: right;
-  margin-right: 42%;
 }
 
 textarea#comment_body {
   width: 450px;
   height: 85px;
 }
-
 
 .comment-wrapper {
   font-size: 16px;
@@ -106,7 +92,6 @@ a.avatar {
 }
 
 // Video
-
 * { box-sizing: border-box; }
 
 .video-background {

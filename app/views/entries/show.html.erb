@@ -22,10 +22,10 @@
     <% end %>
   </div>
 
-  <%= image_tag(@entry.avatar.url(:large), class: 'ui centered large rounded image') %>
+  <%= image_tag(@entry.avatar.url(:large), class: 'shadow ui centered large rounded image') %>
 
-  <h2 class="ui header" >
-    <div class="content" id="img-header">
+  <h2 class="ui header" id="img-header" >
+    <div class="content">
       <%= @entry.caption %>
       <div class="sub header">
         <a id='map-modal' href='#'>

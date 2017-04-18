@@ -144,8 +144,10 @@ $(document).on('turbolinks:load', function() {
       var img = new Image();
       img.src = file.target.result;
       $('#target').html(img);
+      $('#target').find('img').addClass('shadow ui big centered rounded image')
     }
     reader.readAsDataURL(image);
+
   });
 
   // Collapsable reply
