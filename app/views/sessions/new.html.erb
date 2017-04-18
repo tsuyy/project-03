@@ -5,7 +5,7 @@
 <div class="ui container">
   <div class='ui form signin'>
     <div class='fields'>
-      <%= form_for(:session, url: login_path) do |f| %>
+      <%= form_for(:session, url: login_path, :html => {:class => "align-form"}) do |f| %>
 
       <div class='field'>
         <%= f.label :email %>

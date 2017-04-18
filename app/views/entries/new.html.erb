@@ -3,12 +3,11 @@
 
   <h2 class='ui centered header'>New Entry</h2>
 
-  <div id="target">
-  </div>
+  <div id="target"></div>
 
   <div class='ui form new_entry'>
     <div class='fields'>
-      <%= form_for [@entry.user, @entry] do |f| %>
+      <%= form_for [@entry.user, @entry], :html => {:class => "align-form"} do |f| %>
         <%= f.hidden_field :user_id %>
 
         <div class='field'>

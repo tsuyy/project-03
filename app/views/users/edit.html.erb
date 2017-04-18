@@ -7,7 +7,7 @@
 
   <div class='ui form'>
     <div class='fields'>
-      <%= form_for @user do |f| %>
+      <%= form_for @user, :html => {:class => "align-form"} do |f| %>
 
         <div class='field'>
           <%= f.label :image %>
