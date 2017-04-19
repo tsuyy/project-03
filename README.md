@@ -1,14 +1,9 @@
 # Stellar
-An app with weather forecast for stargazing, where users can share their astro photographies
-
+This is an app built for stargazing lovers! Users will not only be able to search for today's forecast, but also share their astrophotography.
 
 ## Installation
-
-`brew install imagemagick`
-
+`brew install imagemagick`</br>
 `bundle` install all the Ruby Gems used
-
-
 
 ### Tools Used
 * [imagemagick](https://www.npmjs.com/package/imagemagick)
@@ -41,9 +36,9 @@ An app with weather forecast for stargazing, where users can share their astro p
 ## Existing Features
 * Weather forecast using user's geolocation and search
 * CRUD
-* RESTful API
+* RESTful API/ External API
 * User Authentication and Authorization
-
+* Image preview before upload
 
 ## Future Features
 * Share posts to social media
@@ -55,8 +50,12 @@ An app with weather forecast for stargazing, where users can share their astro p
 * Can not fetch weather forecast for some of the posted entry locations
 * Can not toggle individual reply text area
 
-## Demo
+## Screenshot
 ![](https://preview.ibb.co/i8Z5bQ/Screen_Shot_2017_04_13_at_15_49_49.png)
 
 ## Heroku
 [Check it out here!](https://s-t-e-l-l-a-r.herokuapp.com/)
+
+##### DEMO Log-in
+Account: b@b.com </br>
+Password: 123456
