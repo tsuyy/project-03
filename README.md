@@ -13,6 +13,7 @@ This is an app built for stargazing lovers! Users will not only be able to searc
 ### Ruby Gems Used
 * [bcrypt](https://gist.github.com/thebucknerlife/10090014)
 * [paperclip](https://github.com/thoughtbot/paperclip)
+* [paperclip-cloudinary](https://github.com/GoGoCarl/paperclip-cloudinary)
 * [HTTParty](https://github.com/jnunemaker/httparty)
 * [semantic-ui-sass](https://github.com/doabit/semantic-ui-sass)
 * [figaro](https://github.com/laserlemon/figaro)
