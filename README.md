@@ -52,7 +52,7 @@ This is an app built for stargazing lovers! Users will not only be able to searc
 * Can not toggle individual reply text area
 
 ## Screenshot
-![](https://preview.ibb.co/i8Z5bQ/Screen_Shot_2017_04_13_at_15_49_49.png)
+![](http://g.recordit.co/9DYg4IP2Is.gif)
 
 ## Heroku
 [Check it out here!](https://s-t-e-l-l-a-r.herokuapp.com/)
