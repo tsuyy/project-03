@@ -2,7 +2,7 @@
 This is an app built for stargazing lovers! Users will not only be able to search for today's forecast, but also share their astrophotography.
 
 ## Wireframe & ERD
-![](app/assets/images/stellar-wireframe.png)
+![Balsamiq](app/assets/images/stellar-wireframe.png)
 
 ## Installation
 `brew install imagemagick`</br>
@@ -50,7 +50,7 @@ This is an app built for stargazing lovers! Users will not only be able to searc
 * Implement bookmarks / likes / follow for users
 * Implement light pollution map of some sort
 
-## BUGS
+### Bugs to fix
 * Can not fetch weather forecast for some of the posted entry locations
 * Can not toggle individual reply text area
 
