@@ -1,6 +1,9 @@
 # Stellar
 This is an app built for stargazing lovers! Users will not only be able to search for today's forecast, but also share their astrophotography.
 
+## Wireframe & ERD
+![](app/assets/images/stellar-wireframe.png)
+
 ## Installation
 `brew install imagemagick`</br>
 `bundle` install all the Ruby Gems used
@@ -19,7 +22,7 @@ This is an app built for stargazing lovers! Users will not only be able to searc
 * [figaro](https://github.com/laserlemon/figaro)
 * [acts_as_commentable_with_threading](https://github.com/elight/acts_as_commentable_with_threading)
 
-## Usage
+### Usage
 1. `rails db:migrate`
 2. `rails s`
 3. localhost:3000
@@ -47,16 +50,16 @@ This is an app built for stargazing lovers! Users will not only be able to searc
 * Implement bookmarks / likes / follow for users
 * Implement light pollution map of some sort
 
-## FIX BUGS
+## BUGS
 * Can not fetch weather forecast for some of the posted entry locations
 * Can not toggle individual reply text area
 
-## Screenshot
+## Demo
 ![](http://g.recordit.co/9DYg4IP2Is.gif)
 
-## Heroku
+### Heroku
 [Check it out here!](https://s-t-e-l-l-a-r.herokuapp.com/)
 
-##### DEMO Log-in
+### Demo Log-in
 Account: b@b.com </br>
 Password: 123456
