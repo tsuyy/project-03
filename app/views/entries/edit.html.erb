@@ -3,13 +3,17 @@
 
   <h2 class='ui centered header'>Edit Entry</h2>
 
+  <div id="target"></div>
 
   <div class='ui form edit-entry'>
     <div class='fields'>
       <%= form_for :entry, method: :patch, url: {action: 'update'}, :html => {:class => "align-form"} do |f| %>
         <%= f.hidden_field :user_id %>
 
-        <%= image_tag(@entry.avatar.url(:large), class: 'shadow ui centered rounded image') %>
+        <div class='field'>
+          <%= f.label :image %>
+          <%= f.file_field :avatar, id: 'pictureInput', requitred: true %>
+        </div>
 
         <div class="field">
           <%= f.label :caption %>
